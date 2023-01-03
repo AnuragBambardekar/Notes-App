@@ -7,7 +7,7 @@ const AddNote = ({handleAddNote}) => {
 
     const handleChange = (e) => {
         //console.log(e.target.value)
-        if(characterLimit - e.target.value.length >= 0){
+        if(characterLimit - e.target.value.length >= 0){ //text should be within character limit
             setNoteText(e.target.value);
         }
     }

@@ -41,7 +41,7 @@ const App = () => {
   //Store data in LocalStorage
   useEffect(() => {
     localStorage.setItem(
-      'react-notes-app-data', 
+      'react-notes-app-data', //key to access localStorage element
       JSON.stringify(notes))
   }, [notes]);
 
@@ -56,10 +56,13 @@ const App = () => {
     }
 
     const newNotes = [...notes, newNote];
-    setNotes(newNotes);
+    setNotes(newNotes); //update the state
   };
 
   //Delete Note
+  // The filter function returns a new array, so we don't have to worry about creating a new array
+  // Create a new array with elements NOT having the same ID as the ID passed in, meaning that if it does,
+  // It will NOT be included in the array, effectively, deleting it.
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
